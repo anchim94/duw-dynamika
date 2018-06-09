@@ -21,6 +21,7 @@ GenCzlon('CZL4','c4',4.5,0.2,0,['B','C'],punkty,3);GenCzlon('CZL5','c5',8.0,0.7,
 GenCzlon('CZL6','c6',8.0,0.7,0,['M','W'],punkty,5);GenCzlon('CZL7','c7',7.0,0.5,0,['H','Q'],punkty,6);
 GenCzlon('CZL8','c8',7.0,0.5,0,['G','Q'],punkty,7)];
 
+%generowanie si³ dzia³aj¹cych na cz³ony - (niegrawitacyjne)
 mechanizm.sily=[GenSilyCzlonu('stala','CZL3',[1000*cos(285*pi/180);1000*sin(285*pi/180);0],'K','CZL3','K',[0;0]);
     GenSilyCzlonu('sprezyna','CZL7',[0;0;0],'c7','CZL8','c8',[3.5*10^5;2.0*10^3;norm(punkty(17).q-punkty(18).q)]);
     GenSilyCzlonu('sprezyna','CZL5',[0;0;0],'c5','CZL6','c6',[2.0*10^5;4.0*10^3;norm(punkty(15).q-punkty(16).q)])];
@@ -29,15 +30,15 @@ mechanizm.sily=[GenSilyCzlonu('stala','CZL3',[1000*cos(285*pi/180);1000*sin(285*
 %definicja funkcji opisuj¹cych przemieszczenie si³owników
 %f(t)=l+a*sin(om*t+phi)
 %l = [-sqrt(1.8*1.8+0.6*0.6) -sqrt(1.2*1.2+0.6*0.6)]; 
-a = [-0.15 -0.3];
-om = [1.44*pi 1.23*pi];
-phi = [pi 0];
-%f1 = @(t) l(1)+a(1)*sin(om(1)*t+phi(1));
-%f2 = @(t) l(2)+a(2)*sin(om(2)*t+phi(2));
-%zapisywanie danych funkcji kieruj¹cej do struktury mechanizmu
-mechanizm.a = a;
-mechanizm.om = om;
-mechanizm.phi = phi;
+% a = [-0.15 -0.3];
+% om = [1.44*pi 1.23*pi];
+% phi = [pi 0];
+% %f1 = @(t) l(1)+a(1)*sin(om(1)*t+phi(1));
+% %f2 = @(t) l(2)+a(2)*sin(om(2)*t+phi(2));
+% %zapisywanie danych funkcji kieruj¹cej do struktury mechanizmu
+% mechanizm.a = a;
+% mechanizm.om = om;
+% mechanizm.phi = phi;
 
 %definiowanie równañ wiêzów przy pomocy funkcji DodajWiez(mechanizm,typ,ob1,punkt1,ob2,punkt2,funkcja)
 mechanizm.wiezyilosc = 0;

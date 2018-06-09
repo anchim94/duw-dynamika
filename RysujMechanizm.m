@@ -5,6 +5,7 @@ function [] = RysujMechanizm(mechanizm)
 %mechanizm  --- struktura mechanizmu
 
 n = length(mechanizm.czlony);
+subplot(3,1,[1 2]);title("Animacja mechanizmu");
 hold on;
 axis([-1 4 -3 2]);
 for i=1:n

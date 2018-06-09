@@ -5,6 +5,8 @@ function [czlon] = GenCzlon(nazwa,srodek,masa,moment,kat,punkty,data,id)
 %ARGUMENTY FUNKCJI:
 %nazwa      --- nazwa cz³onu
 %srodek     --- nazwa punktu œrodka masy
+%masa       --- masa cz³onu (kg)
+%moment     --- moment bezw³adnoœci cz³onu (kg m^2)
 %kat        --- pocz¹tkowy k¹t obrotu lokalnego uk³adu wspó³rzêdnych
 %punkty     --- tablica nazw punktów
 %data       --- tablica wszystkich punktów ca³ego mechanizmu
@@ -17,6 +19,7 @@ function [czlon] = GenCzlon(nazwa,srodek,masa,moment,kat,punkty,data,id)
 %kat        --- k¹t pocz¹tkowy miêdzy osiami uk³adu cz³onu i uk³adu globalnego
 %kolor      --- kolor cz³onu
 %lancuch    --- tablica przechowuj¹ca listê punktów we wspó³.lokalnych
+%M          --- macierz masowa cz³onu
 
 %srodek we wspó³rzêdnych absolutnych
 czlon.id = id; %przypisanie numeru identyfikacyjnego

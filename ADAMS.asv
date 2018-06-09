@@ -29,7 +29,7 @@ RysujMechanizm(m);
 xlim([-1 4])
 ylim([-4 2])
 tablica = zeros(length(0:krok:czas_koncowy),m.liczbamonitorow+1);
-dokladnosc = zeros(length(0:krok:czas_koncowy),2);
+dokladnosc = zeros(length(0:krok:czas_koncowy),1);
 it = 1;
 m.pred = zeros(3*length(mechanizm.czlony),1); %wektor pocz¹tkowy prêdkoœci
 m.przysp = zeros(3*length(mechanizm.czlony),1); %wektor pocz¹tkowy przyspieszeñ
@@ -37,7 +37,7 @@ for i=0:krok:czas_koncowy
    M=GenMasowa(m); %generowanie macierzy masowej
    J=GenJakobi(m,0); %generowanie macierzy Jakobiego
    wiez=GenRownanieWiezow(m,0); %generowanie wektora wiêzów 
-   dokladnosc(it,:)= [it*krok (sqrt(wiez'*wiez))]; %wyœwietlenie wartoœci dok³adnoœci spe³nienia równañ wiêzów
+   dokladnosc(it,:)= disp(sqrt(wiez'*wiez)); %wyœwietlenie wartoœci dok³adnoœci spe³nienia równañ wiêzów
    Macierz=[M,J';J,zeros(size(J,1))]; %generowanie macierzy do rozwi¹zania uk³adu dynamiki
    Q=GenerujSile(m); %generowanie wektora si³ uogólnionych
    Gamma=GenGamma(m,0); %generowanie wektora Gamma
@@ -55,9 +55,6 @@ for i=0:krok:czas_koncowy
   % end
    clf;
    RysujMechanizm(m); %rysujemy mechanizm
-    subplot(3,1,3); 
-    plot(dokladnosc([1:it],1),dokladnosc([1:it],2));%rysowanie wykresu dok³adnoœci
-    ylabel("Dok³adnoœæ wiêzów"); xlabel("Czas");xlim([0 czas_koncowy])
    tablica(it,:) = GenWartoscMonitor(m,i); %pobieramy wartoœci do monitorów
    it = it+1; %kolejna iteracja
    pause(krok);

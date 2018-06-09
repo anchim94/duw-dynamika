@@ -1,5 +1,6 @@
 function [mech] = DodajMonitor(mechanizm,typ,czlon,punkt)
-%DodajMonitor Funkcja dodaje monitor punktu - œledz¹cy jego po³o¿enie
+%DodajMonitor Funkcja dodaje monitor punktu - œledz¹cy jego po³o¿enie,
+%prêdkoœæ lub przyspieszenie
 %ARGUMENTY FUNKCJI:
 %mechanizm  --- struktura mechanizm
 %typ        --- typ monitoru ('X','Y')

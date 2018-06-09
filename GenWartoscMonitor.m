@@ -45,6 +45,18 @@ for i=1:mechanizm.liczbamonitorow
        omega*R(C1.kat)*P1.q*mechanizm.przysp(3*C1.id+3,1);
         result(i+1) = r(2);
    end
+            %TYP 'PHI' - pobiera k¹t po³o¿enia cz³onu
+   if strcmp(monitor.typ,'PHI')
+        result(i+1) = C1.kat;
+   end
+         %TYP 'PHI1' - pobiera prêdkoœæ k¹tow¹ cz³onu
+   if strcmp(monitor.typ,'PHI1')
+        result(i+1) = mechanizm.pred(3*C1.id+3,1);
+   end
+         %TYP 'PHI2' - pobiera przyspieszenie k¹towe cz³onu
+   if strcmp(monitor.typ,'PHI2')
+        result(i+1) = mechanizm.przysp(3*C1.id+3,1);
+   end
 end
 result = result';
 end
